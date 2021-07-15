@@ -61,7 +61,7 @@
                       <td class="table-secondary"><%= flight.airline %></td>
                       <td class="table-secondary"><%= flight.airport %></td>
                       <td class="table-secondary"><%= flight.flightNo %></td>
-                      <td class="table-secondary"><%= flight.departs ? flight.departs : date = new Date(), date.setFullYear(date.getFullYear()+1)%></td>
+                      <td class="table-secondary"><%= flight.departs ? flight.departs : null%></td>
                     </tr>
                     <% }) %>                
                 </tbody>

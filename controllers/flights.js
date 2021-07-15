@@ -22,6 +22,10 @@ function newFlight(req, res) {
 
   function create(req, res) {
     const flight = new Flight(req.body)
+    if (!flight.departs){
+      flight.departs = new Date()
+      flight.departs.setFullYear(flight.departs.getFullYear()+1)
+    }
     flight.save(function(err) {
       // one way to handle errors
           if (err) return res.redirect('/flights/new')
