@@ -30,9 +30,8 @@
       <div class="d-sm-flex align-items-center justify-content-between">
         <div>
           <h1>Book Your <span class="text-warning">Flights</span></h1>
-          <p class="lead my-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae corrupti sint labore quam quae, assumenda tenetur ratione libero ipsum sed nam rem quos aperiam illo reprehenderit eius eveniet dicta sapiente.</p>
-        <button  class="btn btn-primary btn-lg" type="submit" href="/flights/new">Schedule A Flight</button>
-        <button class="btn btn-primary btn-lg" type="submit" href="/flights">View Flights</button>
+          <p class="lead my-4">Unit 2 Lab <span class="text-warning">||</span> Mongoose-Flight <span class="text-warning">||</span>  Alex Cormier</p>
+          <p class="lead my-4"><span class="text-info">Use NavBar above to book a Flight or go to the Main Menu</span></p>
         </div>
         <img class="img-fluid w-50 d-none d-sm-block" src="imgs/airplane.png" alt=""/>
       </div>
@@ -47,9 +46,9 @@
         <h2><%= error %></h2>
       <% } %>
       <ul>
-            <table class="table table-striped">
+            <table class="table table-hover table-bordered">
                 <thead>
-                  <tr>
+                  <tr class="table-primary">
                     <th>Airline</th>
                     <th>Airport</th>
                     <th>Flight Number</th>
@@ -59,10 +58,10 @@
                 <tbody>
                     <% Flight.forEach(function(flight) { %>                    
                     <tr>
-                      <td><%= flight.airline %></td>
-                      <td><%= flight.airport %></td>
-                      <td><%= flight.flightNo %></td>
-                      <td><%= flight.departs ? flight.departs : date = new Date(), date.setFullYear(date.getFullYear()+1)%></td>
+                      <td class="table-secondary"><%= flight.airline %></td>
+                      <td class="table-secondary"><%= flight.airport %></td>
+                      <td class="table-secondary"><%= flight.flightNo %></td>
+                      <td class="table-secondary"><%= flight.departs ? flight.departs : date = new Date(), date.setFullYear(date.getFullYear()+1)%></td>
                     </tr>
                     <% }) %>                
                 </tbody>
