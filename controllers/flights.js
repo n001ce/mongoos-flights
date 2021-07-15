@@ -30,6 +30,6 @@ function newFlight(req, res) {
       // one way to handle errors
           if (err) return res.redirect('/flights/new')
       // for now, redirect right back to new.ejs
-      res.redirect('/flights/new')
+      res.redirect('/flights')
     })
   }
