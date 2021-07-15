@@ -1,15 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="stylesheets/style.css">
-  <title><%= title %></title>
-</head>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/js/bootstrap.bundle.min.js"></script>
+    <title>Mongoose-Flights</title>
+  </head>
 <body>
-  <h1><%= title %></h1>
-  <a href="/flights">Show All Flights</a>
-  <a href="/flights/new">New Flight</a>
+  <!-- navbar -->
+  <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+    <a class="navbar-brand" href="#">Mongoose Flights</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-targert="#navmenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navmenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/flights/new">New Flight</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/flights">All Flights</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- showcase -->
+
+  <section class="bg-dark text-light p-5 text-center text-sm-start">
+    <div class="container">
+      <div class="d-sm-flex align-items-center justify-content-between">
+        <div>
+          <h1>Book Your <span class="text-warning">Flights</span></h1>
+          <p class="lead my-4">Unit 2 Lab <span class="text-warning">||</span> Mongoose-Flight <span class="text-warning">||</span>  Alex Cormier</p>
+          <p class="lead my-4"><span class="text-warning">Use NavBar above</span></p>
+
+        </div>
+        <img class="img-fluid w-50 d-none d-sm-block" src="imgs/airplane.png" alt=""/>
+      </div>
+    </div>
+  </section>
 </body>
 </html>
