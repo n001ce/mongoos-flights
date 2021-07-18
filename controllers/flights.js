@@ -1,4 +1,5 @@
 import { Flight } from '../models/flight.js'
+import {Destination} from '../models/destination.js'
 
 export{
     newFlight as new,
@@ -23,43 +24,45 @@ function newFlight(req, res) {
     res.render('flights/new');
   }  
 
-  function create(req, res) {
+function create(req, res) {
+    for (let key in req.body) {
+      if (req.body[key] === '') delete req.body[key]
+    }
     const flight = new Flight(req.body)
     if (!flight.departs){
       flight.departs = new Date()
       flight.departs.setFullYear(flight.departs.getFullYear()+1)
     }
     flight.save(function(err) {
-          if (err) return res.redirect('/flights/new')
-      res.redirect('/flights/show')
+      if (err) return res.redirect('/flights/new')
+      res.redirect(`/flights/${flight._id}`)
     })
   }
 
-  function addToFlight(req, res) {
-    Flight.findById(req.body.flightId)
-    .then(flight => {
-    flight.destination.push(req.params.destinationId)
-    user.save()
-    .then(()=> {
-      res.redirect(`/flights/${flight._id}`)
+function addToFlight(req, res) {
+    Flight.findById(req.params.id, function(err, flight) {
+      flight.destinations.push(req.body.destinationId)
+      flight.save(function(err) {
+        res.redirect(`/flights/${flight._id}`)
+      })
     })
-  })
-}
+  }
 
 function show(req, res) {
   Flight.findById(req.params.id)
-  .populate('destinations')
-  .then(flight => {
-    res.render('flights/show', {
-      flight
+  .populate('destinations').exec(function(err, flight){
+    Destination.find({_id: {$nin: flight.destinations}}, function(err, destinations) {
+      res.render('flights/show', {
+        title: 'Flight Detail', 
+        flight: flight,
+        destinations: destinations
+      })
     })
   })
 }
 
 function createTicket(req, res) {
-  // Find the movie
  Flight.findById(req.params.id, function(err, flight) {
-    // Push new review into [reviews]
     flight.tickets.push(req.body)
     flight.save(function(err) {
       res.redirect(`/flights/${flight._id}`)

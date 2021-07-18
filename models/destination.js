@@ -7,7 +7,11 @@ export {
 const Schema = mongoose.Schema
 
 const destinationSchema = new Schema({
-  destination: {type: String, unique: true}
+  airport:{
+      type: String,
+      required: true,
+      unique: true
+  }
 }, {
   timestamps: true
 })
