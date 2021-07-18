@@ -4,6 +4,7 @@ export{
     newFlight as new,
     create,
     index,
+    addToFlight
   }
 
   function index(req, res){
@@ -27,9 +28,18 @@ function newFlight(req, res) {
       flight.departs.setFullYear(flight.departs.getFullYear()+1)
     }
     flight.save(function(err) {
-      // one way to handle errors
           if (err) return res.redirect('/flights/new')
-      // for now, redirect right back to new.ejs
       res.redirect('/flights')
     })
   }
+
+  function addToFlight(req, res) {
+    Flight.findById(req.body.flightId)
+    .then(flight => {
+    flight.destination.push(req.params.destinationId)
+    user.save()
+    .then(()=> {
+      res.redirect(`/flights/${flight._id}`)
+    })
+  })
+}

@@ -1,39 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/js/bootstrap.bundle.min.js"></script>
-    <title>Hello, world!</title>
-  </head>
-<body>
-  <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
-    <a class="navbar-brand" href="#">Mongoose Flights</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-targert="#navmenu">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navmenu">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="/flights">All Flights</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="../">Main</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+<%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/movies/new.css" />
+<%- include('../partials/nav') %>
+
+<main>
   <section class="bg-dark text-light p-5 text-center text-sm-start">
     <div class="container">
       <div class="d-sm-flex align-items-center justify-content-between">
         <div>
-          <h1>Book Your <span class="text-warning">Flights</span></h1>
+          <h1>Create New <span class="text-warning">Flight</span></h1>
           <p class="lead my-4">Unit 2 Lab <span class="text-warning">||</span> Mongoose-Flight <span class="text-warning">||</span>  Alex Cormier</p>
-          <p class="lead my-4"><span class="text-info">Use NavBar above to book a Flight or go to the Main Menu</span></p>
+          <p class="lead my-4"><span class="text-info">Use the form below to select: Airline, Airport, Flight Number, and Departure Date/Time</span></p>
         </div>
-        <img class="img-fluid w-50 d-none d-sm-block" src="imgs/airplane.png" alt=""/>
+        <img class="img-fluid w-50 d-none d-sm-block" src="../imgs/world.png" alt=""/>
       </div>
     </div>
   </section>
@@ -42,7 +20,7 @@
       <h1>Enter A New Flight</h1>
     </div>
   </section>
-  <form action="/flights" method="POST" class="text-center">
+  <form action="/flights" method="POST" class="w-50 px-5 display-grid">
     <div class="row">
       <div class="col">
       <label for="exampleFormControlInput1" class="text-left">Airline:
@@ -70,10 +48,11 @@
       <div class="row py-2 text-cemter" >
         <div class="col">
       <label for="exampleFormControlInput3">Departs:
-        <input type="daytime-local" name="departs" id="exampleFormControlInput3">
+        <input type="datetime-local" name="departs" id="exampleFormControlInput3">
       </label></div></div>
       <button onclick= "location.href='/flights'" class="btn btn-primary btn-xs btn-block align-self-center" type="submit">Add Flight</button>
   </form>
 </div>
-</body>
-</html>
+</main>>
+
+<%- include("../partials/footer") %>

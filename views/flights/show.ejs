@@ -1,0 +1,58 @@
+<%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/movies/show.css" />
+<%- include('../partials/nav') %>
+
+<main>
+  <h1><%= title %></h1>
+  <section>
+    <div>Airline: </div>
+    <div><%= flight.airline %></div>
+    <div>Release Year: </div>
+    <div><%= flight.airport %></div>
+    <div>Rating: </div>
+    <div><%= flight.flightNo %></div>
+    <div>Cast: </div>
+    <div><%= flight.departs%></div>
+  </section>
+  <h2>Ticket Info</h2>
+  <form 
+    id="add-review-form"
+    action="/movies/<%= movie._id %>/reviews"
+    method="POST"
+  >
+    <label for="seat-textarea">Seat: </label>
+    <textarea name="seat" id="content-textarea"></textarea>
+    <label for="price-textarea">Price: </label>
+    <textarea name="content" id="rating-select"></textarea>
+    <button type="submit">Add Ticket</button>
+  </form>
+  <% if (flight.ticket.length) { %>
+    <table>
+      <thead>
+        <tr>
+          <th>Seat</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% flight.tickets.forEach(function(ticket) { %>
+          <tr>
+            <td><%= ticket.createdAt.toLocaleDateString() %></td>
+            <td><%= ticket.seat %></td>
+            <td><%= ticket.price %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+    <div class="row row-cols-3 row-cols-md-2 g-4">
+      <% flight.forEach(flight => { %>
+          <select class="form-control" id="exampleFormControlSelector1" name="airline">
+              <option><<%= flight.destination %> ></option>
+            </select>
+      </div>
+  <% } else { %>
+    <h3>No Tickets Yet</h3>
+  <% } %>
+</main>
+  
+<%- include('../partials/footer') %>
