@@ -6,7 +6,9 @@ export{
   }
 
 function create(req, res) {
-    Destination.create(req.body, function (err, destination){
+    Destination.create(req.body, function(err, destination){
+        console.log(req.body)
+        console.log(err)
         res.redirect('/destinations/new')
     })
     }

@@ -20,17 +20,20 @@
     </div>
   </section>
   <p>Please first ensure that the Destination is not in the dropdown
-    <select name="airport">
+    <select>
       <% destinations.forEach(function(destination) { %>
         <option><%= destination.airport%></option>
       <% }) %>
     </select>
   </p>
   <form id="add-destination-form" action="/destinations" method="POST" class="w-50 px-5 display-grid">
-    <label for="airport-input">Destination:</label>
-    <input type="text" name="airport" id="airport-input">
-    <button class="btn btn-primary btn-xs btn-block align-self-center" type="submit">Add Destination</button>
-</form>
+    <div class="row py-2">
+        <div class="col">
+          <label for="exampleFormControlTextarea1">Destination
+          <input type="text" name="airport" class="form-control" id="exampleFormControlTextarea1" required /> 
+        </label></div></div>
+    <button type="submit">Add Destination</button>
+   </form>
 </main>>
 
-<%- include("../partials/footer") %>
+<%- include("../partials/footer") %>con
