@@ -4,7 +4,9 @@ export{
     newFlight as new,
     create,
     index,
-    addToFlight
+    addToFlight,
+    show,
+    createTicket
   }
 
   function index(req, res){
@@ -29,7 +31,7 @@ function newFlight(req, res) {
     }
     flight.save(function(err) {
           if (err) return res.redirect('/flights/new')
-      res.redirect('/flights')
+      res.redirect('/flights/show')
     })
   }
 
@@ -39,6 +41,27 @@ function newFlight(req, res) {
     flight.destination.push(req.params.destinationId)
     user.save()
     .then(()=> {
+      res.redirect(`/flights/${flight._id}`)
+    })
+  })
+}
+
+function show(req, res) {
+  Flight.findById(req.params.id)
+  .populate('destinations')
+  .then(flight => {
+    res.render('flights/show', {
+      flight
+    })
+  })
+}
+
+function createTicket(req, res) {
+  // Find the movie
+ Flight.findById(req.params.id, function(err, flight) {
+    // Push new review into [reviews]
+    flight.tickets.push(req.body)
+    flight.save(function(err) {
       res.redirect(`/flights/${flight._id}`)
     })
   })

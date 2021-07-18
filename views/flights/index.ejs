@@ -62,6 +62,8 @@
                       <td class="table-secondary"><%= flight.airport %></td>
                       <td class="table-secondary"><%= flight.flightNo %></td>
                       <td class="table-secondary"><%= flight.departs ? flight.departs : null%></td>
+                      <td class="table-secondary"><form action="/flights/<%= flight._id %>">
+                        <button type="submit">Details</button>
                     </tr>
                     <% }) %>                
                 </tbody>

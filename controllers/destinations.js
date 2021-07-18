@@ -10,7 +10,7 @@ function newDestination(req, res) {
   }  
 
   function create(req, res) {
-    const destination = new Destination(req.query.name)
+    const destination = new Destination(req.body.destination)
     destination.save(function(err) {
           if (err) return res.redirect('/destinations/new')
       res.redirect('/flights')
