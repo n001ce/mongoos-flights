@@ -2,57 +2,62 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <section>
-    <h1>
-      <%= flight.airline %> 
-    </h1>
-    <div>Airport: </div>
-    <div><%= flight.airport %></div>
-    <div>Flight Number: </div>
-    <div><%= flight.flightNo%></div>
-    <div>Departs On: </div>
-    <div><%= flight.departs%></div>
-    <div>Destinations:</div>
-    <ul>
-      <%- flight.destinations.map(d => 
-        `<li>${d.airport}</li>`
-      ).join('') %>
-    </ul>  
-  </section>
+  <div class="container py-5">
+    <section class="container center-block bg-light">
+      <h1>
+        <%= flight.airline %> 
+      </h1>
+      <div class="text-info text-uppercase">Airport: </div>
+      <div><%= flight.airport %></div>
+      <div class="text-info text-uppercase" >Flight Number: </div>
+      <div><%= flight.flightNo%></div>
+      <div class="text-info text-uppercase">Departs On: </div>
+      <div><%= flight.departs%></div>
+      <div class="text-info text-uppercase">Destinations:</div>
+      <ul>
+        <%- flight.destinations.map(d => 
+          `<li>${d.airport}</li>`
+        ).join('') %>
+      </ul>  
+    </section><br>
   <form id="add-des-to-des" action="/flights/<%= flight._id %>/destinations" method="POST">
-    <select name="destinationId">
+    <select class="dropdown-menu-right input-group" name="destinationId">
       <%- destinations.map(d => 
         `<option value="${d._id}">${d.airport}</option>`
       ).join('') %>
     </select>
-    <button type="submit">Add to Destinations</button>
-  </form>
+    <button class="input-group-btn btn-primary" type="submit">Add to Destinations</button>
+  </form><br>
     
   <h2>Tickets</h2>
+  <section>
   <form 
     id="add-tickets-form"
     action="/flights/<%= flight._id %>/tickets"
     method="POST"
+    class="form-group"
   >
     <label for="seat-textarea">Seat:</label>
-    <textarea name="seat" id="seat-textarea" required pattern="[A-F][1-9]\d?"></textarea>
+    <textarea class="form-control" name="seat" id="seat-textarea" required pattern="[A-F][1-9]\d?"></textarea>
     <label for="price-seatarae">Price: </label>
-    <textarea name="price" id="price-textarea"></textarea>
-    <button type="submit">Add Ticket</button>
+    <textarea class="form-control" name="price" id="price-textarea"></textarea>
+    <button class="input-group-btn btn-primary" type="submit">Add Ticket</button>
   </form>
+</section>
+  <br>
   <% if (flight.tickets.length) { %>
-    <table>
-      <thead>
+    <table class="table">
+      <thead class="thead-dark">
         <tr>
-          <th>Seat Number: </th>
-          <th>Price: </th>
+          <th scope="col">Seat Number: </th>
+          <th scope="col">Price: </th>
         </tr>
       </thead>
       <tbody>
         <% flight.tickets.forEach(function(ticket) { %>
           <tr>
             <td><%= ticket.seat %></td>
-            <td><%= ticket.price %></td>
+            <td>$<%= ticket.price %></td>
           </tr>
         <% }) %>
       </tbody>
@@ -60,6 +65,7 @@
   <% } else { %>
     <h3>No Tickets Yet</h3>
   <% } %>
+</div>
 </main>
 
 

@@ -1,30 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/js/bootstrap.bundle.min.js"></script>
-    <title>Hello, world!</title>
-  </head>
-<body>
-  <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
-    <a class="navbar-brand" href="#">Mongoose Flights</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-targert="#navmenu">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navmenu">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="../">Main</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/flights/new">New Flight</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
   <section class="bg-dark text-light p-5 text-center text-sm-start">
     <div class="container">
       <div class="d-sm-flex align-items-center justify-content-between">
@@ -63,7 +38,7 @@
                       <td class="table-secondary"><%= flight.flightNo %></td>
                       <td class="table-secondary"><%= flight.departs ? flight.departs : null%></td>
                       <td class="table-secondary"><form action="/flights/<%= flight._id %>">
-                        <button type="submit">Details</button>
+                      <button class="input-group-btn type="submit">Details</button></form>
                     </tr>
                     <% }) %>                
                 </tbody>
