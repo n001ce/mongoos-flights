@@ -19,38 +19,40 @@
       <h1>Enter A New Flight</h1>
     </div>
   </section>
+  <div class="container form-input bg-light my-5" id="destCon">
   <form action="/flights" method="POST" class="w-50 px-5 display-grid">
-    <div class="row">
-      <div class="col">
-      <label for="exampleFormControlInput1" class="text-left">Airline:
-          <select class="form-control" id="exampleFormControlSelector1" name="airline">
-              <option>American</option>
+    <div class="row my-row">
+      <div class="col-12 my-col form-group">
+      <label for="exampleFormControlInput1 text-lg-left" class="text-left">Airline:
+          <select class="form-select" id="exampleFormControlSelector1" name="airline">
+              <option class="">American</option>
               <option>Southwest</option>
               <option>United</option>
             </select>
       </label></div>
-      <div class="row py-2">
-      <div class="col">
+      <div class="row my-row py-2">
+      <div class="col-12">
         <label for="exampleFormControlInput2">Airport
-        <select class="form-control align-items-center justify-content-between" id="exampleFormControlSelect2" name="airport">
+        <select class="form-select align-items-center justify-content-between" id="exampleFormControlSelect2" name="airport">
           <option value="AUS">AUS</option>
           <option value="DFW">DFW</option>
           <option value="LAX">LAX</option>
           <option value="SAN">SAN</option>
         </select>
       </label></div></div>
-      <div class="row py-2">
-      <div class="col">
+      <div class="row my-row py-2">
+      <div class="col-12">
         <label for="exampleFormControlTextarea1">Flight Number
         <input type="number" min="10" max="9999" name="flightNo" class="form-control" id="exampleFormControlTextarea1" required /> 
       </label></div></div>
-      <div class="row py-2 text-cemter" >
-        <div class="col">
+      <div class="row my-row py-2 text-cemter" >
+        <div class="col-12">
       <label for="exampleFormControlInput3">Departs:
         <input type="datetime-local" name="departs" id="exampleFormControlInput3">
       </label></div></div>
       <button onclick= "location.href='/flights'" class="btn btn-primary btn-xs btn-block align-self-center" type="submit">Add Flight</button>
   </form>
+</div>
 </div>
 </main>>
 

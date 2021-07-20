@@ -6,11 +6,11 @@
     <div class="container">
       <div class="d-sm-flex align-items-center justify-content-between">
         <div>
-          <h1>Create New <span class="text-warning">Destination</span></h1>
+          <h1>Create New <span class="text-warning">Destinations</span></h1>
           <p class="lead my-4">Unit 2 Lab <span class="text-warning">||</span> Mongoose-Flight <span class="text-warning">||</span>  Alex Cormier</p>
-          <p class="lead my-4"><span class="text-info">Use the form below to select: Airline, Airport, Flight Number, and Departure Date/Time</span></p>
+          <p class="lead my-4"><span class="text-info">Use the form below to introduce a new Destination</span></p>
         </div>
-        <img class="img-fluid w-50 d-none d-sm-block" src="../imgs/world.png" alt=""/>
+        <img class="img-fluid w-50 d-none d-sm-block" src="/imgs/airplane.png" alt=""/>
       </div>
     </div>
   </section>
@@ -19,21 +19,28 @@
       <h1>Enter A New Destination</h1>
     </div>
   </section>
-  <p>Please first ensure that the Destination is not in the dropdown
-    <select>
-      <% destinations.forEach(function(destination) { %>
-        <option><%= destination.airport%></option>
-      <% }) %>
-    </select>
-  </p>
-  <form id="add-destination-form" action="/destinations" method="POST" class="w-50 px-5 display-grid">
-    <div class="row py-2">
-        <div class="col">
-          <label for="exampleFormControlTextarea1">Destination
-          <input type="text" name="airport" class="form-control" id="exampleFormControlTextarea1" required /> 
-        </label></div></div>
-    <button type="submit">Add Destination</button>
-   </form>
-</main>>
+  <div class="container form-input bg-light my-5 border" id="destCon">
+    <div class="row my-row ">
+      <div class="col-12my-col form-group">
+        <p class="m-5">Please first ensure that the Destination is not in the dropdown</p>
+          <select class="form-select form-select-sm mb-3">
+            <% destinations.forEach(function(destination) { %>
+              <option class="bg-white"><%= destination.airport%></option>
+            <% }) %>
+          </select>
+        </p>
+      </div>
+      </div>
+      <div class="row my-row">
+      <div class="col-12 my-col">
+        <form id="add-destination-form" action="/destinations" method="POST" class="m-5">
+                <label for="exampleFormControlTextarea1">Destination
+                <input type="text" name="airport" class="form-control" id="exampleFormControlTextarea1" required /> 
+              </label></div></div>
+          <button type="submit">Add Destination</button>
+         </form>
+      </div>
+  </div>
+</main>
 
-<%- include("../partials/footer") %>con
+<%- include("../partials/footer") %>

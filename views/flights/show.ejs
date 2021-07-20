@@ -2,19 +2,27 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <div class="container py-5">
-    <section class="container center-block bg-light">
-      <h1>
+  <div class="container py-5 "id="flightShow">
+    <section>
+      <h1 class="text-warning font-weight-bold my-3">
         <%= flight.airline %> 
       </h1>
-      <div class="text-info text-uppercase">Airport: </div>
-      <div><%= flight.airport %></div>
-      <div class="text-info text-uppercase" >Flight Number: </div>
-      <div><%= flight.flightNo%></div>
-      <div class="text-info text-uppercase">Departs On: </div>
-      <div><%= flight.departs%></div>
-      <div class="text-info text-uppercase">Destinations:</div>
-      <ul>
+      <div class="row my-row ">
+        <div class="col-12 text-info text-uppercase text-align-center my-3">Airport: </div>
+      </div>
+      <div class="text-light"><%= flight.airport %></div>
+      <div class="row my-row">
+        <div class="col-12 text-info text-uppercase my-3" >Flight Number: </div>
+      </div>
+      <div class="text-light"><%= flight.flightNo%></div>
+      <div class="row my-row">
+        <div class="col-12 text-info text-uppercase my-3">Departs On: </div>
+      </div>
+      <div class="text-light"><%= flight.departs%></div>
+      <div class="row my-row">
+        <div class="col-12 text-info text-uppercase my-3">Destinations:</div>
+      </div>
+    <ul class="text-light">
         <%- flight.destinations.map(d => 
           `<li>${d.airport}</li>`
         ).join('') %>
@@ -25,11 +33,11 @@
       <%- destinations.map(d => 
         `<option value="${d._id}">${d.airport}</option>`
       ).join('') %>
-    </select>
+    </select><br>
     <button class="input-group-btn btn-primary" type="submit">Add to Destinations</button>
   </form><br>
     
-  <h2>Tickets</h2>
+  <h2 class="align-content-center">Tickets</h2>
   <section>
   <form 
     id="add-tickets-form"
