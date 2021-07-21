@@ -2,7 +2,7 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <div class="container py-5 "id="flightShow">
+  <div class="container py-5 bg-dark"id="flightShow">
     <section>
       <h1 class="text-warning font-weight-bold my-3">
         <%= flight.airline %> 
@@ -37,7 +37,7 @@
     <button class="input-group-btn btn-primary" type="submit">Add to Destinations</button>
   </form><br>
     
-  <h2 class="align-content-center">Tickets</h2>
+  <h2 class="text-warning" align-content-center">Tickets</h2>
   <section>
   <form 
     id="add-tickets-form"
@@ -48,13 +48,13 @@
     <label for="seat-textarea">Seat:</label>
     <textarea class="form-control" name="seat" id="seat-textarea" required pattern="[A-F][1-9]\d?"></textarea>
     <label for="price-seatarae">Price: </label>
-    <textarea class="form-control" name="price" id="price-textarea"></textarea>
+    <textarea class="form-control" name="price" id="price-textarea"></textarea><br>
     <button class="input-group-btn btn-primary" type="submit">Add Ticket</button>
   </form>
 </section>
   <br>
   <% if (flight.tickets.length) { %>
-    <table class="table">
+    <table class="table text-white">
       <thead class="thead-dark">
         <tr>
           <th scope="col">Seat Number: </th>

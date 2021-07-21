@@ -1,6 +1,6 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-image: linear-gradient(rgb(56, 56, 56), rgba(255, 255, 255, 0.808));
+  background-image: linear-gradient(rgba(56, 56, 56, 0.466), rgba(255, 255, 255, 0.808));
   background-repeat: no-repeat;
   min-height: 100vh;
 }
@@ -18,6 +18,8 @@ p{
 }
 
 #flightShow{
+  padding-left: 30px;
+  padding-right: 30px;
   max-width: 60%;
   min-height: 100vh;
   font-size: 20px;
